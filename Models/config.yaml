@@ -1,10 +1,10 @@
 # MODEL SETTINGS
 
-training_dir: '../Netflix_Dataset/'
+training_dir: '../Netflix_Dataset/Netflix_first_64_1.npy'
 batch_size: 8
 num_gpus: 1
 num_nodes: 1
-num_workers: 2
+num_workers: 1
 sample_size: 64
 demo_every: 1000
 demo_steps: 250
@@ -15,6 +15,6 @@ accum_batches: 4
 checkpoint_every: 10000
 latent_dim: 0
 cache_training_data: False
-ckpt_path: ''
-save_path: ''
+ckpt_path: '../Ckpt/'
+save_path: '../Saved_Models/'
 start_method: 'spawn'

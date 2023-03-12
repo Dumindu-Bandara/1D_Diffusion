@@ -1,9 +1,9 @@
-# import yaml
+import yaml
 
-# with open('config.yaml') as file:
-#     configs = yaml.safe_load(file)
+with open('config.yaml') as file:
+    configs = yaml.safe_load(file)
 
-# print(configs['batch_size'])
+print(configs)
 
 # from dataset import SampleDataset
 

@@ -8,7 +8,7 @@ from .utils import append_dims, expand_to_planes
 class DiffusionAttnUnet1D(nn.Module):
     def __init__(
         self, 
-        global_args, 
+        latent_dim = 0, 
         io_channels = 1, 
         depth=14, 
         n_attn_layers = 6,
@@ -56,7 +56,7 @@ class DiffusionAttnUnet1D(nn.Module):
                 )
             else:
                 block = nn.Sequential(
-                    conv_block(io_channels + 16 + global_args.latent_dim, c, c),
+                    conv_block(io_channels + 16 + latent_dim, c, c),
                     conv_block(c, c, c),
                     conv_block(c, c, c),
                     block,
