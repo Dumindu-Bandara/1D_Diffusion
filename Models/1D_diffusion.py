@@ -147,7 +147,7 @@ class DemoCallback(pl.Callback):
         
         self.last_demo_step = trainer.global_step
     
-        noise = torch.randn([self.num_demos, 1, self.demo_samples]).to(module.device)
+        noise = torch.randn([self.num_demos, 2, self.demo_samples]).to(module.device)
 
         try:
             fakes = sample(module.diffusion_ema, noise, self.demo_steps, 0)
@@ -210,7 +210,9 @@ def main():
         max_epochs=100
     )
 
-    diffusion_trainer.fit(diffusion_model, train_dl, ckpt_path=configs["ckpt_path"])
+# , ckpt_path=configs["ckpt_path"]
+
+    diffusion_trainer.fit(diffusion_model, train_dl)
 
 if __name__ == '__main__':
     main()

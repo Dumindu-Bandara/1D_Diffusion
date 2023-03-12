@@ -20,4 +20,6 @@ class SampleDataset(torch.utils.data.Dataset):
     return self.data.shape[0]
 
   def __getitem__(self, idx):
-    return (self.data[idx], idx)
+    out = self.data[idx].repeat(2, 1)
+    out = out.type(torch.HalfTensor)
+    return (out, idx)

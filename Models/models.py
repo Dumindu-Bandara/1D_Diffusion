@@ -2,17 +2,17 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from .blocks import SkipBlock, FourierFeatures, SelfAttention1d, ResConvBlock, Downsample1d, Upsample1d
-from .utils import append_dims, expand_to_planes
+from blocks import SkipBlock, FourierFeatures, SelfAttention1d, ResConvBlock, Downsample1d, Upsample1d
+from utils import append_dims, expand_to_planes
 
 class DiffusionAttnUnet1D(nn.Module):
     def __init__(
         self, 
         latent_dim = 0, 
-        io_channels = 1, 
-        depth=14, 
-        n_attn_layers = 6,
-        c_mults = [128, 128, 256, 256] + [512] * 10
+        io_channels = 2, 
+        depth=5, 
+        n_attn_layers = 3,
+        c_mults = [128, 128, 256, 256, 512]
     ):
         super().__init__()
 
